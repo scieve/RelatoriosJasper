@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="estados_brasileiros" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="048721f0-235f-49c0-b9b8-7a9c07047b90">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Estados Brasileiros - JSON"/>
+	<property name="net.sf.jasperreports.data.adapter" value="EstadosBrasileiros-JSON.xml"/>
+	<property name="ireport.jasperserver.url" value="http://localhost:8080/jasperserver/"/>
+	<property name="ireport.jasperserver.user" value="jasperadmin"/>
+	<property name="ireport.jasperserver.report.resource" value="/reports/estados_brasileiros_files/main_jrxml"/>
+	<property name="ireport.jasperserver.reportUnit" value="/reports/estados_brasileiros"/>
+	<parameter name="P_SIGLA_REGIAO" class="java.lang.String"/>
+	<queryString language="json">
+		<![CDATA[]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer">
+		<property name="net.sf.jasperreports.json.field.expression" value="id"/>
+		<fieldDescription><![CDATA[id]]></fieldDescription>
+	</field>
+	<field name="sigla" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="sigla"/>
+		<fieldDescription><![CDATA[sigla]]></fieldDescription>
+	</field>
+	<field name="nome" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="nome"/>
+		<fieldDescription><![CDATA[nome]]></fieldDescription>
+	</field>
+	<field name="regiao_sigla" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="regiao.sigla"/>
+		<fieldDescription><![CDATA[regiao.sigla]]></fieldDescription>
+	</field>
+	<field name="regiao_nome" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="regiao.nome"/>
+	</field>
+	<sortField name="nome"/>
+	<filterExpression><![CDATA[$P{P_SIGLA_REGIAO} == null || $P{P_SIGLA_REGIAO}.equals($F{regiao_sigla})]]></filterExpression>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="185" height="20" uuid="5e5a533a-11d6-4491-8c9a-a2f08f2f884a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7d2e0edc-fcde-4e95-91a3-13e8bc2ad8d9"/>
+				</reportElement>
+				<text><![CDATA[sigla]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="185" y="0" width="185" height="20" uuid="b62ba24e-fd17-4c01-b16c-44d3fe659262">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1c857332-7c36-41de-8abf-28315b9f516c"/>
+				</reportElement>
+				<text><![CDATA[nome]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="370" y="0" width="185" height="20" uuid="6f8793e8-658d-4952-af01-8b799dcbd6f8">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="033fd80a-b7a6-4489-887f-aacf8b23bcb0"/>
+				</reportElement>
+				<text><![CDATA[regiao_nome]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="185" height="30" uuid="d5b7179c-e2df-46dd-886d-5a41b85e2056">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7d2e0edc-fcde-4e95-91a3-13e8bc2ad8d9"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{sigla}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="185" y="0" width="185" height="30" uuid="caa9e9fb-e687-4d32-9cea-238763553013">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1c857332-7c36-41de-8abf-28315b9f516c"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="370" y="0" width="185" height="30" uuid="5345c048-5ad4-4f79-97bd-d2e62b09903d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="033fd80a-b7a6-4489-887f-aacf8b23bcb0"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{regiao_nome}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
